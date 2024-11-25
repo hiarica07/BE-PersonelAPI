@@ -39,9 +39,14 @@ require('./src/configs/dbConnection')
 app.all('/', (req, res) => {
 
     res.send({
-        message: 'WELCOME TO PERSONNEL API',
+        message: 'WELCOME TO PERSONNEL API', 
+        session: req.session,
+        isLogin: req.session.id ? true : false,
     })
 })
+//Auth
+
+app.use("/auth", require("./src/routes/auth"))
 
 //Departments
 app.use("/departments",require("./src/routes/department"))
