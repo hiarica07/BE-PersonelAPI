@@ -46,7 +46,7 @@ app.all('/', (req, res) => {
 //Departments
 app.use("/departments",require("./src/routes/department"))
 //Personnels
-app.use("/personnel", require("./src/routes/personnel"))
+app.use("/personnels", require("./src/routes/personnel"))
 
 // Not Found
 app.use('*', (req, res) => {

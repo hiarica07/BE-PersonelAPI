@@ -14,9 +14,9 @@ const DepartmentSchema = new Schema({
     }
 },{
     timestamps:true,
-    collection: "Departments"
+    collection: "departments"
 })
 
-module.exports = model("Departments", DepartmentSchema)
+module.exports = model("Department", DepartmentSchema)
 
 /************************************/
