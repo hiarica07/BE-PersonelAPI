@@ -1,24 +1,22 @@
-"use strict";
+"use strict"
 /* -------------------------------------------------------
     EXPRESS - Personnel API
 ------------------------------------------------------- */
-const router = require("express").Router();
+const router = require('express').Router()
 /* ------------------------------------------------------- */
-const {
-  list,
-  create,
-  read,
-  update,
-  deletePersonnel,
-} = require("../controllers/personnel");
+const { list, create, read, update, deletePersonnel } = require('../controllers/personnel')
+const {isAdmin} = require("../middlewares/permissions")
 
-router.route("/").get(list).post(create);
-router
-  .route("/:id")
-  .get(read)
-  .put(update)
-  .patch(update)
-  .delete(deletePersonnel);
+router.use(isAdmin)
+
+router.route("/")
+    .get(list)
+    .post(create)
+router.route("/:id")
+    .get(read)
+    .put(update)
+    .patch(update)
+    .delete(deletePersonnel)
 
 /* ------------------------------------------------------- */
-module.exports = router;
+module.exports = router

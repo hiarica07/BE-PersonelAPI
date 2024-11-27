@@ -12,6 +12,10 @@ const {
   deleteToken,
 } = require("../controllers/token");
 
+//Admin PERMISSION
+const {isAdmin} = require("../middlewares/permissions")
+router.use(isAdmin)
+
 router.route("/").get(list).post(create);
 router
   .route("/:id")
