@@ -42,8 +42,10 @@ app.all('/', (req, res) => {
 
     res.send({
         message: 'WELCOME TO PERSONNEL API', 
-        session: req.session,
-        isLogin: req.session.id ? true : false,
+        // session: req.session,
+        // isLogin: req.session.id ? true : false,
+        isLogin: req.user ? true : false,
+        user : req.user
     })
 })
 //Auth
