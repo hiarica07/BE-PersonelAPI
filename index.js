@@ -25,7 +25,9 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 
+// Authentication
 
+app.use(require("./src/middlewares/authentication"))
 
 // Query Handler:
 app.use(require('./src/middlewares/queryHandler'))
@@ -48,12 +50,20 @@ app.all('/', (req, res) => {
 
 app.use("/auth", require("./src/routes/auth"))
 
+//Token
+
+app.use("/tokens", require("./src/routes/token"))
+
 //Departments
+
 app.use("/departments",require("./src/routes/department"))
+
 //Personnels
+
 app.use("/personnels", require("./src/routes/personnel"))
 
 // Not Found
+
 app.use('*', (req, res) => {
 
     res.status(404).send({
