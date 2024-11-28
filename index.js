@@ -25,6 +25,10 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 
+// LOGGER
+
+app.use(require("./src/middlewares/logger"))
+
 // Authentication
 
 app.use(require("./src/middlewares/authentication"))
