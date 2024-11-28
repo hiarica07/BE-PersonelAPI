@@ -46,7 +46,7 @@ module.exports = {
 
         res.status(202).send({
             error:false,
-            //secondway// new: await Department.findById(req.params.id) 
+            // new: await Department.findOne({_id:req.params.id}),
             result
         })
     },

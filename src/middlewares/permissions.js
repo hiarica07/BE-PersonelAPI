@@ -30,7 +30,6 @@ module.exports = {
                 res.errorStatusCode = 403
             throw new Error("No permission: You must login.")
             }
-            next()
             
 
         },

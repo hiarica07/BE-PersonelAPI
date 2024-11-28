@@ -13,8 +13,8 @@ const {
 } = require("../controllers/token");
 
 //Admin PERMISSION
-const {isAdmin} = require("../middlewares/permissions")
-router.use(isAdmin)
+// const {isAdmin} = require("../middlewares/permissions")
+// router.use(isAdmin)
 
 router.route("/").get(list).post(create);
 router
